@@ -24,9 +24,11 @@
         
         float percapita;   
         float percapita2;
+        float spoder;
+        float spoder2;
 
-        int populacao;
-        int populacao2;
+        unsigned long int populacao;
+        unsigned long int populacao2;
         
         int turismo;
         int turismo2;
@@ -43,7 +45,7 @@
 
 
                   printf("Cadastre um Codigo para a Carta: \n");
-                    scanf("%c", &codcarta);
+                    scanf("%s", &codcarta);
                   printf("\n");  
                   
                   printf("Cadastre um Estado: \n");
@@ -55,7 +57,7 @@
                   printf("\n");  
                   
                   printf("Cadastre a Pulação: \n");
-                    scanf("%d", &populacao);
+                    scanf("%lu", &populacao);
                   printf("\n");
                     
                   printf("Cadastre a Area em Km²: \n");
@@ -66,20 +68,22 @@
                     scanf("%f", &pib);  
                   printf("\n");
 
-                  printf("Cadastre o Turismo: \n"); 
+                 printf("Cadastre o Turismo: \n"); 
                     scanf("%d", &turismo);
                   printf("\n");
 
                     
         /*todas as contas matematicas tentar colocar aqui*/ 
-                                 populacao =  (float) populacao;// forçando a variavel virar float
-
 
                       des_populacao = populacao / area_km;
 
-                      percapita = populacao / pib;
+                      percapita = pib / populacao;
+
+                     spoder = populacao + area_km + pib + turismo + percapita + (1.0 / des_populacao);
                   
-        /*Imprimir carta 1*/
+        /*Imprimir carta 1 */
+                  printf("==================================\n");
+                   printf("\n");
 
                   printf("Codigo da Carta: %s \n",codcarta);
                       printf("\n");
@@ -90,7 +94,7 @@
                   printf("Cidade: %s \n", nomecity);
                       printf("\n");
                                      
-                  printf("Polução: %i \n", populacao);
+                  printf("Polução: %lu \n", populacao);
                       printf("\n");
                   
                   printf("Area em Km²: %.2f \n", area_km);
@@ -107,17 +111,18 @@
 
                   printf("O PIB per Capita é: %.2f \n ", percapita);
                       printf("\n");
-    
+                  printf("==================================\n");
+                    
                       
-          /*Pular linha
+          /*Pular linha*/
                     printf("\n");
                     printf("\n");
-                     */
-                    /*Parte 2 cadastro de cartas
+                     
+                    /*Parte 2 cadastro de cartas*/
               
                     printf(" **** Cadastro de Cartas 2! ****\n");
- */
-               /*Ter mais linhas puladas
+ 
+               /*Ter mais linhas puladas*/
                     printf("\n");
                     printf("\n");
 
@@ -135,7 +140,7 @@
                   printf("\n");
 
                   printf("Cadastre a Pulação: \n");
-                    scanf("%d", &populacao2);
+                    scanf("%lu", &populacao2);
                   printf("\n");  
               
                   printf("Cadastre a Area em Km²: \n");
@@ -150,18 +155,22 @@
                     scanf("%d", &turismo2);
                   printf("\n");
 
-                  /*todas as contas matematicas tentar colocar aqui
-                                 populacao2 =  (float) populacao2; // forçando a variavel virar float
- 
-
-
+                  /*todas as contas matematicas tentar colocar aqui*/
+                                 
                       des_populacao2 = populacao2 / area_km2;
-                      percapita = populacao2 / pib2;
-        Pular linha
-        printf("\n");
-     */
-       /*imprimir dados da carta2
 
+                      percapita2 = pib2 / populacao2;
+                      
+                      spoder2 = populacao2 + area_km2 + pib2 + turismo2 + percapita2 + (1.0 / des_populacao2);
+
+
+        /*Pular linha*/
+        printf("\n");
+        printf("\n");
+       
+        /*imprimir dados da carta2*/
+                    printf("==================================\n");
+                     printf("\n");
                     printf("Codigo da Carta: %s \n",codcarta2 );
                       printf("\n");
 
@@ -177,7 +186,7 @@
                     printf("PIB: %.2f \n", pib2);
                       printf("\n");
                     
-                    printf("Polução: %i \n", populacao2);
+                    printf("Polução: %lu \n", populacao2);
                       printf("\n");
                     
                     printf("Turismo: %i \n", turismo2);      
@@ -188,6 +197,25 @@
                     
                      printf("O PIB per Capita é: %.2f \n ", percapita2);
                       printf("\n"); 
- */
-  return 0;    
+                    printf("==================================\n");
+ 
+      /*Pular linha*/
+        printf("\n");
+        printf("\n");
+                  printf("COMPARADOR\n");
+/*Pular linha*/
+        printf("\n");
+        printf("\n");
+
+       printf("População entre Carta1 e Carta2: %s\n", (populacao >= populacao2) ? "Carta1 tem mais ou igual" : "Carta2 tem mais");
+
+       printf("Area Km² entre Carta1 e Carta2: %s\n", (area_km >= area_km2) ? "Carta1 tem mais ou igual" : "Carta2 tem mais");
+
+       printf("Pib entre Carta1 e Carta2: %s\n", (pib >= pib2) ? "Carta1 tem mais ou igual" : "Carta2 tem mais");
+
+       printf("Pib per capita entre Carta1 e Carta2: %s\n", (percapita >= percapita2) ? "Carta1 tem mais ou igual" : "Carta2 tem mais");
+       
+       printf("Densidade populacional entre Carta1 e Carta2: %s\n", (des_populacao >= des_populacao2) ? "Carta1 tem mais ou igual" : "Carta2 tem mais");
+       
+ return 0;    
 }
